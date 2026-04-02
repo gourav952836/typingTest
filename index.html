@@ -2,49 +2,110 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Free Typing Test Online | typing test online</title>
-
-<meta name="description" content="Practice typing online for free. Improve typing speed, accuracy, WPM with typing test online.">
-<meta name="keywords" content="typing test, typing speed test, free typing practice, online typing test, improve typing speed">
-<meta name="author" content="typing test online">
+<title>Typing Test Pro</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="index, follow">
 
 <style>
-/* SAME CSS AS BEFORE */
-html, body {margin:0; padding:0; height:100%; font-family: Arial, sans-serif;
+html, body {
+  margin:0; padding:0; height:100%;
+  font-family: Arial;
   background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-              url('https://images.unsplash.com/photo-1508780709619-79562169bc64') no-repeat center center fixed;
-  background-size: cover; color:white;}
+  url('https://images.unsplash.com/photo-1508780709619-79562169bc64') no-repeat center center fixed;
+  background-size: cover;
+  color:white;
+}
+
 .top-section { text-align:center; margin-top:20px;}
 h1 { font-size:30px; color:#00ffcc; text-shadow:0 0 10px #00ffcc;}
-.link-buttons {margin-top:10px;}
-.button {text-decoration:none; padding:10px 18px; border-radius:25px; margin:5px; font-weight:bold; display:inline-block;}
-.yt-button {background:#ff0000;} .tg-button {background:#0088cc;}
+
+.button {
+  text-decoration:none; padding:10px 18px;
+  border-radius:25px; margin:5px;
+  font-weight:bold; display:inline-block;
+}
+.yt-button {background:#ff0000;}
+.ig-button {background:#e1306c;}
+
 .lesson-bar {text-align:center; margin-top:10px;}
-.lesson-btn {margin:5px; padding:8px 15px; border-radius:20px; border:none; cursor:pointer; background:#00ffcc;}
-#main-container {display:flex; flex-direction:column; align-items:center; width:90%; max-width:1000px; margin:auto; margin-top:20px;}
-#text {width:50%; padding:15px; background:rgba(0,0,0,0.6); height:135px; overflow-y:auto; white-space:pre-line;}
-#input {width:50%; padding:10px; margin-top:10px;}
-#restartBtn {margin-top:15px; padding:12px 25px; font-size:16px; border-radius:30px; background:linear-gradient(45deg,#00ffcc,#0099ff); border:none; cursor:pointer; color:black; font-weight:bold;}
-#info-container {display:flex; justify-content:space-between; width:100%; margin-top:10px;}
-#timerDisplay, #history {background:rgba(0,0,0,0.6); padding:10px; border-radius:6px; height:80px; width:48%;}
-.correct {color:transparent;} .wrong {color:red;}
-#resultBox {position:fixed; top:0; left:0; width:100%; height:100%; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.7);}
-.result-content {background:linear-gradient(135deg,#00ffcc,#0099ff); padding:25px; border-radius:15px; text-align:center; color:black; width:280px;}
+.lesson-btn {
+  margin:5px; padding:8px 15px;
+  border-radius:20px; border:none;
+  cursor:pointer; background:#00ffcc;
+}
+
+#main-container {
+  display:flex; flex-direction:column;
+  align-items:center;
+  width:90%; max-width:1000px;
+  margin:auto; margin-top:20px;
+}
+
+#text {
+  width:50%; padding:15px;
+  background:rgba(0,0,0,0.6);
+  height:140px;
+}
+
+#input {
+  width:50%; padding:10px;
+  margin-top:10px;
+}
+
+#restartBtn {
+  margin-top:15px; padding:12px 25px;
+  border-radius:30px;
+  background:linear-gradient(45deg,#00ffcc,#0099ff);
+  border:none; cursor:pointer;
+  color:black; font-weight:bold;
+}
+
+.correct {color:transparent;}
+.wrong {color:red;}
+
+#info-container {
+  display:flex; justify-content:space-between;
+  width:100%; margin-top:10px;
+}
+
+#timerDisplay, #history {
+  background:rgba(0,0,0,0.6);
+  padding:10px; border-radius:6px;
+  width:48%;
+}
+
+#resultBox {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.8);
+}
+
+.result-content {
+  background:linear-gradient(135deg,#00ffcc,#0099ff);
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  color:black;
+  width:350px;
+  font-size:22px;
+}
 </style>
 </head>
+
 <body>
 
-<!-- 🔊 SOUND FILES -->
 <audio id="typeSound" src="type.mp3"></audio>
 <audio id="errorSound" src="error.mp3"></audio>
 
 <div class="top-section">
   <h1>✨ कोशिश करने वालों की कभी हार नहीं होती ✨</h1>
-  <div class="link-buttons">
-    <a href="#" class="button yt-button">▶ YouTube</a>
-    <a href="#" class="button tg-button">💬 Telegram</a>
+
+  <div>
+    <a href="https://www.youtube.com/@gauravvargadhiya" target="_blank" class="button yt-button">▶ YouTube</a>
+    <a href="https://www.instagram.com/gaurav_vargadhiya?igsh=dWYycXpuNW9sNmhp" target="_blank" class="button ig-button">📸 Instagram</a>
   </div>
 </div>
 
@@ -64,43 +125,32 @@ h1 { font-size:30px; color:#00ffcc; text-shadow:0 0 10px #00ffcc;}
 
 <div id="main-container">
   <div id="text"></div>
-  <input type="text" id="input" placeholder="Start typing here..." autofocus>
+
+  <input type="text" id="input" placeholder="Start typing..." autofocus>
+
   <button id="restartBtn" onclick="restart()">🔄 Restart</button>
 
   <div id="info-container">
     <div id="timerDisplay">
-      ⏱ Time: <span id="timer">0.0</span><br>
+      ⏱ Time: <span id="timer">0</span><br>
       ⚡ Speed: <span id="speed">0</span> WPM<br>
       🎯 Accuracy: <span id="accuracy">100</span>%
     </div>
+
     <div id="history">Previous Attempts:</div>
   </div>
 </div>
 
 <div id="resultBox">
   <div class="result-content">
-    <h2>🏆 Result</h2>
-    <div id="countdown"></div>
-    <div id="resultData" style="display:none;">
-      ⏱ <span id="rTime"></span><br>
-      ⚡ <span id="rSpeed"></span><br>
-      🎯 <span id="rAcc"></span>%
-    </div>
+    <h2>🏆 RESULT</h2>
+    <div id="resultText"></div>
     <button onclick="closeResult()">OK</button>
   </div>
 </div>
 
 <script>
-// 🔊 SOUND
-const typeSound = document.getElementById("typeSound");
-const errorSound = document.getElementById("errorSound");
 
-function enableSound(){
-  typeSound.play().then(()=>{typeSound.pause(); typeSound.currentTime=0;});
-}
-document.getElementById("input").addEventListener("focus", enableSound);
-
-// ✅ LESSONS ARRAY UPDATED WITH 11 PARTS
 const lessons = [
 `sad lad flask ask
 fall ask dad lad
@@ -135,7 +185,7 @@ move next very fast`,
 `fast type and move quick
 we love typing very fast
 keep your speed up now
-never stop just type fas`,
+never stop just type fast`,
 
 `this is new typing part
 practice more daily
@@ -157,68 +207,123 @@ practice daily typing fast
 home row and middle row keys`
 ];
 
-// 🔹 REST OF ORIGINAL JS (timer, typing, WPM, accuracy)
-let originalText=lessons[0], currentIndex=0, startTime=null, timerInterval=null, totalTyped=0, errors=0;
+let originalText=lessons[0];
+let currentIndex=0, startTime=null;
+let timerInterval, totalTyped=0, errors=0;
+
 const textDiv=document.getElementById("text");
 const input=document.getElementById("input");
+
 const timer=document.getElementById("timer");
 const speed=document.getElementById("speed");
 const acc=document.getElementById("accuracy");
-const history=document.getElementById("history");
 
-function setLesson(i){originalText=lessons[i]; restart();}
-function loadText(){textDiv.innerHTML=originalText.split("").map(c=>`<span>${c}</span>`).join("");currentIndex=0; totalTyped=0; errors=0; timer.innerText="0.0"; speed.innerText="0"; acc.innerText="100";}
-function startTimer(){startTime=Date.now(); timerInterval=setInterval(()=>{let t=(Date.now()-startTime)/1000; timer.innerText=t.toFixed(1); let wpm=((currentIndex/5)/(t/60))||0; speed.innerText=Math.round(wpm); let a=totalTyped?((totalTyped-errors)/totalTyped)*100:100; acc.innerText=a.toFixed(1);},200);}
-function stopTimer(){clearInterval(timerInterval);let t=(Date.now()-startTime)/1000;let wpm=((currentIndex/5)/(t/60));let a=((totalTyped-errors)/totalTyped)*100;return {time:t.toFixed(1), wpm:Math.round(wpm), acc:a.toFixed(1)};}
-function showResult(r){let box=document.getElementById("resultBox");let cd=document.getElementById("countdown");let data=document.getElementById("resultData");box.style.display="flex"; data.style.display="none"; let c=3; cd.innerText=c; let t=setInterval(()=>{c--; if(c>0){ cd.innerText=c;} else{ clearInterval(t); cd.innerText=""; data.style.display="block"; document.getElementById("rTime").innerText=r.time; document.getElementById("rSpeed").innerText=r.wpm; document.getElementById("rAcc").innerText=r.acc;} },1000);}
-function closeResult(){document.getElementById("resultBox").style.display="none";}
+const typeSound=document.getElementById("typeSound");
+const errorSound=document.getElementById("errorSound");
 
-loadText();
+let historyData = JSON.parse(localStorage.getItem("history")) || [];
 
-// ✅ Error Correction & Backspace Support + Sound
+function setLesson(i){
+  originalText=lessons[i];
+  restart();
+}
+
+function loadText(){
+  textDiv.innerHTML=originalText.split("").map(c=>`<span>${c}</span>`).join("");
+}
+
+function startTimer(){
+  startTime=Date.now();
+  timerInterval=setInterval(()=>{
+    let t=(Date.now()-startTime)/1000;
+    timer.innerText=t.toFixed(1);
+
+    let wpm=((currentIndex/5)/(t/60))||0;
+    speed.innerText=Math.round(wpm);
+
+    let a=((totalTyped-errors)/totalTyped)*100||100;
+    acc.innerText=a.toFixed(1);
+  },200);
+}
+
+function stopTimer(){
+  clearInterval(timerInterval);
+  let t=(Date.now()-startTime)/1000;
+  let wpm=((currentIndex/5)/(t/60));
+  let a=((totalTyped-errors)/totalTyped)*100;
+  return {time:t.toFixed(1), wpm:Math.round(wpm), acc:a.toFixed(1)};
+}
+
+function showResult(r){
+  document.getElementById("resultBox").style.display="flex";
+
+  document.getElementById("resultText").innerHTML =
+  `⏱ ${r.time}s <br> ⚡ ${r.wpm} WPM <br> 🎯 ${r.acc}%`;
+
+  historyData.push(`${r.time}s | ${r.wpm}WPM | ${r.acc}%`);
+  localStorage.setItem("history", JSON.stringify(historyData));
+
+  updateHistory();
+}
+
+function updateHistory(){
+  let h=document.getElementById("history");
+  h.innerHTML="Previous Attempts:<br>";
+  historyData.slice(-5).reverse().forEach(x=>{
+    h.innerHTML+=x+"<br>";
+  });
+}
+
+function closeResult(){
+  document.getElementById("resultBox").style.display="none";
+}
+
 input.addEventListener("input", ()=>{
-if(!startTime) startTimer();
-let spans=textDiv.querySelectorAll("span");
-let val=input.value;
+  if(!startTime) startTimer();
 
-// Update spans classes & sound
-for(let i=0;i<spans.length;i++){
-    let typedChar=val[i];
-    let expectedChar=spans[i].innerText;
-    if(typedChar==null){spans[i].classList.remove("correct","wrong");}
-    else if(typedChar===expectedChar){spans[i].classList.add("correct"); spans[i].classList.remove("wrong");}
-    else{spans[i].classList.add("wrong"); spans[i].classList.remove("correct");}
-}
+  let spans=textDiv.querySelectorAll("span");
+  let val=input.value;
 
-// 🔊 Sound
-let lastCharIndex = val.length-1;
-if(lastCharIndex>=0){
-  if(val[lastCharIndex]===originalText[lastCharIndex]){
-    typeSound.currentTime=0; typeSound.play();
-  } else {errorSound.currentTime=0; errorSound.play();}
-}
+  totalTyped=val.length;
+  errors=0;
 
-currentIndex=0;
-while(currentIndex<val.length && val[currentIndex]===originalText[currentIndex]){
-    currentIndex++;
-}
+  for(let i=0;i<spans.length;i++){
+    let char=val[i];
+    if(char==null){
+      spans[i].className="";
+    }
+    else if(char===originalText[i]){
+      spans[i].className="correct";
+      typeSound.currentTime=0;
+      typeSound.play();
+    }
+    else{
+      spans[i].className="wrong";
+      errorSound.currentTime=0;
+      errorSound.play();
+      errors++;
+    }
+  }
 
-totalTyped=val.length;
-errors=val.split("").filter((c,i)=>c!==originalText[i]).length;
+  currentIndex=val.length;
 
-if(currentIndex===originalText.length){
+  if(currentIndex===originalText.length){
     let r=stopTimer();
-    setTimeout(()=>{
-        showResult(r);
-        let p=document.createElement("div");
-        p.innerText=`${r.time}s | ${r.wpm} WPM | ${r.acc}%`;
-        history.appendChild(p);
-        restart();
-    },100);
-}
+    showResult(r);
+    setTimeout(restart,2000);
+  }
 });
 
-function restart(){clearInterval(timerInterval); startTime=null; input.value=""; loadText();}
+function restart(){
+  clearInterval(timerInterval);
+  startTime=null;
+  input.value="";
+  loadText();
+}
+
+loadText();
+updateHistory();
+
 </script>
 
 </body>
