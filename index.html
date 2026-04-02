@@ -151,65 +151,51 @@ h1 { font-size:30px; color:#00ffcc; text-shadow:0 0 10px #00ffcc;}
 
 <script>
 
-const lessons = [
+const lessons = [/* SAME 11 LESSONS */
 `sad lad flask ask
 fall ask dad lad
 jakal salad flask
 lad ask sad fall`,
-
 `a sad lad falls fast
 dad asks all lads
 salad falls as flask
 a lad asks a sad dad`,
-
 `power wire rope
 quiet write type
 rower upper power
 type wire rope`,
-
 `we type power up
 quiet people write
 row your power up
 type write repeat`,
-
 `zoom mix zinc
 vex mix zone
 comic zone zoom
 mix move next`,
-
 `we mix and move next
 zoom over next mix
 comic zone is fun
 move next very fast`,
-
 `fast type and move quick
 we love typing very fast
 keep your speed up now
 never stop just type fast`,
-
 `this is new typing part
 practice more daily
 typing speed will increase`,
-
 `The Quick Brown Fox
 Jumps Over The Lazy Dog
-Type And Write Power
-Shift Keys Capital Letters`,
-
+Type And Write Power`,
 `Practice Backspace Use
 Correct Your Mistakes
-Typing Is Fun And Fast
-Never Stop Just Type`,
-
+Typing Is Fun And Fast`,
 `Top and Middle Row Practice
-asdf gh jk l qwer tyu io
-practice daily typing fast
-home row and middle row keys`
+asdf gh jk l qwer tyu io`
 ];
 
 let originalText=lessons[0];
-let currentIndex=0, startTime=null;
-let timerInterval, totalTyped=0, errors=0;
+let currentIndex=0,startTime=null;
+let timerInterval,totalTyped=0,errors=0;
 
 const textDiv=document.getElementById("text");
 const input=document.getElementById("input");
@@ -221,26 +207,18 @@ const acc=document.getElementById("accuracy");
 const typeSound=document.getElementById("typeSound");
 const errorSound=document.getElementById("errorSound");
 
-let historyData = JSON.parse(localStorage.getItem("history")) || [];
+let historyData=JSON.parse(localStorage.getItem("history"))||[];
 
-function setLesson(i){
-  originalText=lessons[i];
-  restart();
-}
-
-function loadText(){
-  textDiv.innerHTML=originalText.split("").map(c=>`<span>${c}</span>`).join("");
-}
+function setLesson(i){originalText=lessons[i];restart();}
+function loadText(){textDiv.innerHTML=originalText.split("").map(c=>`<span>${c}</span>`).join("");}
 
 function startTimer(){
   startTime=Date.now();
   timerInterval=setInterval(()=>{
     let t=(Date.now()-startTime)/1000;
     timer.innerText=t.toFixed(1);
-
     let wpm=((currentIndex/5)/(t/60))||0;
     speed.innerText=Math.round(wpm);
-
     let a=((totalTyped-errors)/totalTyped)*100||100;
     acc.innerText=a.toFixed(1);
   },200);
@@ -256,51 +234,37 @@ function stopTimer(){
 
 function showResult(r){
   document.getElementById("resultBox").style.display="flex";
-
-  document.getElementById("resultText").innerHTML =
+  document.getElementById("resultText").innerHTML=
   `⏱ ${r.time}s <br> ⚡ ${r.wpm} WPM <br> 🎯 ${r.acc}%`;
 
   historyData.push(`${r.time}s | ${r.wpm}WPM | ${r.acc}%`);
-  localStorage.setItem("history", JSON.stringify(historyData));
-
+  localStorage.setItem("history",JSON.stringify(historyData));
   updateHistory();
 }
 
 function updateHistory(){
   let h=document.getElementById("history");
   h.innerHTML="Previous Attempts:<br>";
-  historyData.slice(-5).reverse().forEach(x=>{
-    h.innerHTML+=x+"<br>";
-  });
+  historyData.slice(-5).reverse().forEach(x=>h.innerHTML+=x+"<br>");
 }
 
-function closeResult(){
-  document.getElementById("resultBox").style.display="none";
-}
+function closeResult(){document.getElementById("resultBox").style.display="none";}
 
-input.addEventListener("input", ()=>{
+input.addEventListener("input",()=>{
   if(!startTime) startTimer();
-
   let spans=textDiv.querySelectorAll("span");
   let val=input.value;
-
-  totalTyped=val.length;
-  errors=0;
+  totalTyped=val.length; errors=0;
 
   for(let i=0;i<spans.length;i++){
     let char=val[i];
-    if(char==null){
-      spans[i].className="";
-    }
+    if(char==null){spans[i].className="";}
     else if(char===originalText[i]){
       spans[i].className="correct";
-      typeSound.currentTime=0;
-      typeSound.play();
-    }
-    else{
+      typeSound.currentTime=0; typeSound.play();
+    }else{
       spans[i].className="wrong";
-      errorSound.currentTime=0;
-      errorSound.play();
+      errorSound.currentTime=0; errorSound.play();
       errors++;
     }
   }
@@ -311,6 +275,24 @@ input.addEventListener("input", ()=>{
     let r=stopTimer();
     showResult(r);
     setTimeout(restart,2000);
+  }
+});
+
+/* 🔥 ENTER FEATURES */
+input.addEventListener("keydown",(e)=>{
+  if(e.key==="Enter"){
+    e.preventDefault();
+    if(startTime){
+      let r=stopTimer();
+      showResult(r);
+      setTimeout(restart,2000);
+    }
+  }
+});
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Enter" && document.getElementById("resultBox").style.display==="flex"){
+    closeResult();
   }
 });
 
